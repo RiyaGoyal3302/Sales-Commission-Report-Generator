@@ -1,0 +1,38 @@
+.file-input-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .file-input-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  input[type="file"]::file-selector-button {
+    border: 2px solid #87CBB9;
+    padding: 0.2em 0.4em;
+    border-radius: 0.2em;
+    background-color: #B9EDDD;
+  }
+  
+  input[type="file"]::file-selector-button:hover {
+    background-color: #569DAA;
+    border: 2px solid #577D86;
+  }
+ 
+  button {
+    padding: 10px 20px;
+    background-color: #B9EDDD;
+    color: black;
+    border: 2px solid #87CBB9;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #569DAA;
+    border: 2px solid #577D86;
+  }
+  

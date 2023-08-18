@@ -1,0 +1,14 @@
+app-upload-files{
+    display: block;
+    height: 250px;
+    width: 400px;
+    left: 10px;
+}
+app-commission-report{
+    display: block;
+    position: relative;
+    left: 500px;
+    height: auto;
+    width: 800px;
+    top: -270px;
+}

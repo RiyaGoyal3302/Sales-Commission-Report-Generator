@@ -1,0 +1,74 @@
+<h2>Commission Report</h2>
+<div>
+  <label class="select-date-label" for="date-picker">Select date:</label>
+  <input class="select-date" type="date" id="date-picker" [(ngModel)]="selectedDate" name = "selectedDate">
+  <button (click)="getCommissionData()">Get Commission Data</button>
+</div>
+<div class="commission-table">
+  <table>
+    <thead>
+      <tr *ngIf="commissionData[0]">
+        <th (click)="sortCommissionData('salesmanName')">Salesman</th>
+        <th (click)="sortCommissionData('product')">Product</th>
+        <th (click)="sortCommissionData('salesmanArea')">Area</th>
+        <th (click)="sortCommissionData('productQuantity')">Quantity</th>
+        <th (click)="sortCommissionData('salesAmount')">Total Sales</th>
+        <th (click)="sortCommissionData('salesmanCommission')">Total Commission</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of commissionData">
+        <td (click)="showSalesmanPopup(data.salesmanName)">{{data.salesmanName}}</td>
+        <td (click)="showProductPopup(data.product)">{{data.product}}</td>
+        <td>{{data.salesmanArea}}</td>
+        <td>{{data.productQuantity}}</td>
+        <td>{{data.salesAmount}}</td>
+        <td>{{data.salesmanCommission}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-container *ngIf="salesmanPopupData[0]">
+  <div class="popup">
+    <h3>Salesman: {{salesmanPopupData[0].salesmanName}}</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Salesman Area</th>
+          <th>Total Sales Amount</th>
+          <th>Total Commission</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of salesmanPopupData">
+          <td>{{data.salesmanArea}}</td>
+          <td>{{data.totalSalesAmount}}</td>
+          <td>{{data.totalSalesmanCommission}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <button (click)="salesmanPopupData = []">Close</button>
+  </div>
+</ng-container>
+<ng-container *ngIf="productPopupData[0]">
+  <div class="popup">
+    <h3>Product: {{productPopupData[0].product}}</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Area</th>
+          <th>Quantity</th>
+          <th>Sales Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of productPopupData">
+          <td>{{data.salesmanArea}}</td>
+          <td>{{data.totalProductQuantity}}</td>
+          <td>{{data.totalSalesAmount}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <button (click)="productPopupData = []">Close</button>
+  </div>
+</ng-container>

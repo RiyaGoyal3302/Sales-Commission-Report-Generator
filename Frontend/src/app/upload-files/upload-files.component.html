@@ -1,0 +1,10 @@
+<h2>File Upload</h2>
+<div class="file-input-container">
+  <label class="file-input-label" for="salesman-file">Select salesman file:</label>
+  <input type="file" accept="application/json" id="salesman-file" (change)="onSalesmanFileSelected($event)" required>
+</div>
+<div class="file-input-container">
+  <label class="file-input-label" for="product-file">Select product file:</label>
+  <input type="file" accept="application/json" id="product-file" (change)="onProductFileSelected($event)" required>
+</div>
+<button (click)="onUpload()">Upload Files</button>
